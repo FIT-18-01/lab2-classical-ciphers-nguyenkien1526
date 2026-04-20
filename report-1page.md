@@ -1,7 +1,9 @@
 # Report 1 Page – FIT4012 Lab 2
 
 ## 1. Mục tiêu
-Tóm tắt ngắn gọn mục tiêu của bài lab.
+- Hoàn thiện mã hóa và giải mã Caesar Cipher.
+- Hoàn thiện mã hóa, giải mã và đọc file với Rail Fence Cipher.
+- Ghi lại kết quả chạy thử bằng tests, logs và báo cáo.
 
 ## 2. Cách làm
 - Hoàn thiện Caesar Cipher cho chữ thường, dấu cách và giải mã.
