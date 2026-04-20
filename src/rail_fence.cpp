@@ -23,8 +23,7 @@ string rail_fence_encrypt(const string &plaintext, int rails) {
     int direction = 1;
 
     for (char c : plaintext) {
-        // TODO(student): Q6 can keep spaces as normal characters.
-        fence[rail] += c;
+             fence[rail] += c;
         rail += direction;
         if (rail == rails - 1 || rail == 0) direction = -direction;
     }
@@ -35,8 +34,41 @@ string rail_fence_encrypt(const string &plaintext, int rails) {
 }
 
 string rail_fence_decrypt(const string &ciphertext, int rails) {
-    // TODO(student): Q5
-    return ciphertext;
+    if (rails <= 1 || ciphertext.empty())
+        return ciphertext;
+
+    vector<int> rail_lens(rails, 0);
+    int rail = 0;
+    int direction = 1;
+    for (size_t i = 0; i < ciphertext.size(); ++i)
+    {
+        rail_lens[rail]++;
+        rail += direction;
+        if (rail == rails - 1 || rail == 0)
+            direction = -direction;
+    }
+
+    vector<string> fence(rails);
+    size_t pos = 0;
+    for (int r = 0; r < rails; ++r)
+    {
+        fence[r] = ciphertext.substr(pos, rail_lens[r]);
+        pos += rail_lens[r];
+    }
+
+    string plaintext;
+    vector<int> read_idx(rails, 0);
+    rail = 0;
+    direction = 1;
+    for (size_t i = 0; i < ciphertext.size(); ++i)
+    {
+        plaintext += fence[rail][read_idx[rail]++];
+        rail += direction;
+        if (rail == rails - 1 || rail == 0)
+            direction = -direction;
+    }
+
+    return plaintext;
 }
 
 string read_message_from_file(const string &path) {
@@ -58,7 +90,7 @@ int main() {
     int rails;
 
     if (choice == 3) {
-        message = read_message_from_file("data/input.txt");
+        message = read_message_from_file("../data/input.txt");
         cout << "Message from file: " << message << "\n";
     } else {
         cout << "Enter message: ";
