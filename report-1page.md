@@ -12,20 +12,24 @@ Tóm tắt ngắn gọn mục tiêu của bài lab.
 ### 3.1 Caesar Cipher
 | Input | Key | Ciphertext / Plaintext | Nhận xét |
 |---|---:|---|---|
-| I LOVE YOU | 3 |  |  |
-| hello world | 5 |  |  |
-| LORYH BRX | 3 |  |  |
+| I LOVE YOU | 3 | L ORYH BRX | Đúng |
+| hello world | 5 | mjqqt btwqi | Đúng |
+| LORYH BRX | 3 | ILOVE YOU | Đúng |
 
 ### 3.2 Rail Fence Cipher
 | Input | Rails | Ciphertext / Plaintext | Nhận xét |
 |---|---:|---|---|
-| I LOVE YOU | 2 |  |  |
-| I LOVE YOU | 4 |  |  |
-| IOEOLVYU | 2 |  |  |
+| I LOVE YOU | 2 | ILV O OEYU | Đúng |
+| I LOVE YOU | 4 | I  EYLVOOU | Đúng |
+| IOEOLVYU | 2 | ILOVEYOU | Đúng |
 
 ### 3.3 Input validation / file input
-- Trường hợp đầu vào không hợp lệ:
+- Trường hợp đầu vào không hợp lệ: 
+  - Input: Hello123 -> Invalid input. Only letters and spaces are allowed.
 - Kết quả đọc từ `data/input.txt`:
+  - Đọc thành công
 
 ## 4. Kết luận
-Nêu ngắn gọn em học được gì từ bài lab, khó khăn lớn nhất là gì, và điều gì giúp em hiểu rõ hơn về Caesar hoặc Rail Fence Cipher.
+Bài lab giúp em hiểu rõ nguyên lý của các phương pháp mã hóa cổ điển.
+Phần khó nhất là giải mã Rail Fence vì cần xử lý zigzag phức tạp.
+Sau khi hoàn thành, em đã nắm được cách xây dựng thuật toán và xử lý dữ liệu đầu vào tốt hơn.
